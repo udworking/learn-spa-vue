@@ -20,6 +20,7 @@
         <div id="app">
             <!-- <example-component></example-component> -->
             <header-component></header-component>
+            <router-view></router-view>
         </div>
         <!-- Scripts -->
         @vite('resources/js/app.js')
