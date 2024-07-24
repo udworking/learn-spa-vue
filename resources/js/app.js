@@ -5,7 +5,8 @@ import 'bootstrap';
 import { createRouter, createWebHistory } from 'vue-router';
 import TaskListComponent from './components/TaskListComponent.vue'; // TaskListComponentのインポート
 import TaskDetailComponent from './components/TaskDetailComponent.vue';
-
+import TaskInsertComponent from './components/TaskInsertComponent.vue';
+import TaskEditComponent from './components/TaskEditComponent.vue';
 // Vue Routerのセットアップ
 const routes = [
     {
@@ -24,6 +25,18 @@ const routes = [
         component: TaskDetailComponent,
         props: true
     },
+    {
+        path: '/tasks/:taskId/edit',
+        name: 'task.edit',
+        component: TaskEditComponent,
+        props: true
+    },
+    {
+        path: '/tasks/insert',
+        name: 'task.insert',
+        component: TaskInsertComponent
+    },
+
 ];
 
 const router = createRouter({
