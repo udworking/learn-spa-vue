@@ -27,6 +27,9 @@ export default defineConfig({
         },
     },
     build: {
-        outDir: 'public/build',
+        outDir: 'public/build',  // 出力ディレクトリを 'public/build' に設定
+        rollupOptions: {
+            input: 'index.html',  // ビルドの入力ファイルを指定
+        },
     }
 });
