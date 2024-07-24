@@ -26,6 +26,6 @@ export default defineConfig({
         },
     },
     build: {
-        putDir: 'public/build',
+        outDir: 'public/build',
     }
 });
