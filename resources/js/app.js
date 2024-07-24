@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import { createRouter, createWebHistory } from 'vue-router';
 import TaskListComponent from './components/TaskListComponent.vue'; // TaskListComponentのインポート
+import TaskDetailComponent from './components/TaskDetailComponent.vue';
 
 // Vue Routerのセットアップ
 const routes = [
@@ -16,6 +17,12 @@ const routes = [
         path: '/tasks',
         name: 'task.list',
         component: TaskListComponent
+    },
+    {
+        path: '/tasks/:taskId',
+        name: 'task.detail',
+        component: TaskDetailComponent,
+        props: true
     },
 ];
 
