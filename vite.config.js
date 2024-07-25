@@ -27,5 +27,10 @@ export default defineConfig({
     },
     build: {
         outDir: 'public/build',
-    }
+        rollupOptions: {
+            input: {
+                main: 'index.html', // ここでindex.htmlの場所を指定
+            },
+        },
+    },
 });
