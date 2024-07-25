@@ -12,14 +12,7 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-        vue({
-            template: {
-                transformAssetUrls: {
-                    base: null,
-                    includeAbsolute: false,
-                },
-            },
-        }),
+        vue(),
     ],
     resolve: {
         alias: {
@@ -30,8 +23,11 @@ export default defineConfig({
         outDir: 'public/build',
         rollupOptions: {
             input: {
-                main: 'index.html', // ここでindex.htmlの場所を指定
+                main: 'index.html',
             },
         },
+    },
+    server: {
+        historyApiFallback: true, // これを追加
     },
 });
