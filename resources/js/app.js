@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap';
 import { createRouter, createWebHistory } from 'vue-router';
 import TaskListComponent from './components/TaskListComponent.vue'; // TaskListComponentのインポート
-import TaskDetailComponent from './components/TaskDetailComponent.vue';
+import TaskShowComponent from './components/TaskShowComponent.vue';
 import TaskInsertComponent from './components/TaskInsertComponent.vue';
 import TaskEditComponent from './components/TaskEditComponent.vue';
 // Vue Routerのセットアップ
@@ -21,8 +21,8 @@ const routes = [
     },
     {
         path: '/tasks/:taskId',
-        name: 'task.detail',
-        component: TaskDetailComponent,
+        name: 'task.show',
+        component: TaskShowComponent,
         props: true
     },
     {
