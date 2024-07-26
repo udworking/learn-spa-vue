@@ -10,6 +10,12 @@
                     <router-link v-bind:to="{name: 'task.insert'}">
                         <button class="btn btn-success">ADD</button>
                     </router-link>
+                    <router-link v-bind:to="{name: 'select_top'}">
+                        <button class="btn btn-success">Select_Top</button>
+                    </router-link>
+                    <router-link v-bind:to="{name: 'select.add_f'}">
+                        <button class="btn btn-success">Add New F</button>
+                    </router-link>
                 </div>
             </nav>
         </div>
