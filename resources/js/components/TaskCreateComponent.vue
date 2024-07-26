@@ -31,11 +31,19 @@
            }
        },
        methods: {
-           submit() {
-               axios.post('/api/tasks', this.task).then((res) => {
-                   this.$router.push({name: 'task.list'});
-               });
-           }
+        submit() {
+            console.log('Task data:', this.task); // デバッグ用のログ
+            axios.post('/api/tasks', this.task)
+                .then((res) => {
+                    console.log('Task submitted successfully:', res.data); // デバッグ用のログ
+                    break;
+                    // this.$router.push({ name: 'task.list' });
+                })
+                .catch((error) => {
+                    console.error('Error submitting task:', error);
+                    break;
+                });
+        }
        }
     }
  </script>

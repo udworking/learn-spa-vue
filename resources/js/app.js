@@ -7,6 +7,12 @@ import TaskListComponent from './components/TaskListComponent.vue'; // TaskListC
 import TaskShowComponent from './components/TaskShowComponent.vue';
 import TaskInsertComponent from './components/TaskInsertComponent.vue';
 import TaskEditComponent from './components/TaskEditComponent.vue';
+
+import SelectFishComponent from './components/select_fish/SelectFishComponent.vue';
+import FishDetailComponent from './components/select_fish/FishDetailComponent.vue';
+import AddFishComponent from './components/select_fish/AddFishComponent.vue';
+import EditFishComponent from './components/select_fish/EditFishComponent.vue';
+
 // Vue Routerのセットアップ
 const routes = [
     {
@@ -35,6 +41,34 @@ const routes = [
         path: '/tasks/insert',
         name: 'task.insert',
         component: TaskInsertComponent
+    },
+    {
+        path: '/select_mode',
+        name: 'select_top',
+        component: SelectFishComponent,
+    },
+    {
+        path: '/select_mode/:fishId',
+        name: 'select_mode.detail',
+        component: FishDetailComponent,
+        props: true
+    },
+    {
+        path: '/select_mode/add_f',
+        name: 'select.add_f',
+        component: AddFishComponent,
+    },
+    {
+        path: '/select_mode/:fishId',
+        name: 'select.fish',
+        component: FishDetailComponent,
+        props: true
+    },
+    {
+        path: '/select_mode/:fishId/edit',
+        name: 'select_mode.update',
+        component: EditFishComponent,
+        props: true
     },
 
 ];

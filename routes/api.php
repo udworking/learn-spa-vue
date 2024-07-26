@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FishController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,3 +25,9 @@ Route::middleware('api')->post('/tasks', [TaskController::class, 'store']);
 Route::middleware('api')->get('/tasks/{task}',  [TaskController::class, 'show']);
 Route::middleware('api')->put('/tasks/{task}', [TaskController::class, 'update']);
 Route::middleware('api')->delete('/tasks/{task}', [TaskController::class, 'destroy']);
+
+Route::middleware('api')->get('/select_mode', [FishController::class, 'index']);
+Route::middleware('api')->post('/select_mode', [FishController::class, 'add']);
+Route::middleware('api')->get('/select_mode/{fish}', [FishController::class, 'detail']);
+Route::middleware('api')->put('/select_mode/{fish}', [FishController::class, 'update']);
+Route::middleware('sql')->delete('/select_mode/{fish}', [FishController::class, 'delete']);
