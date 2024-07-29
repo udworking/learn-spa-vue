@@ -30,4 +30,4 @@ Route::middleware('api')->get('/select_mode', [FishController::class, 'index']);
 Route::middleware('api')->post('/select_mode', [FishController::class, 'add']);
 Route::middleware('api')->get('/select_mode/{fish}', [FishController::class, 'detail']);
 Route::middleware('api')->put('/select_mode/{fish}', [FishController::class, 'update']);
-Route::middleware('sql')->delete('/select_mode/{fish}', [FishController::class, 'delete']);
+Route::middleware('api')->delete('/select_mode/{fish}', [FishController::class, 'destroy']);

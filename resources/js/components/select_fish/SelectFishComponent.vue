@@ -17,7 +17,7 @@
                 <tr v-for="(fish, index) in fishs" :key="index">
                     <th scope="row">{{ fish.id }}</th>
                     <td>{{ fish.name }}</td>
-                    <td>{{ fish.category }}</td>
+                    <td>{{ fish.category_name }}</td>
                     <td>{{ fish.description }}</td>
                     <td>{{ fish.size }}</td>
                     <td>
@@ -31,7 +31,7 @@
                         </router-link>
                     </td>
                     <td>
-                        <button class="btn btn-danger" v-on:click="deleteTask(fish.id)">Delete</button>
+                        <button class="btn btn-danger" v-on:click="deletefish(fish.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>
@@ -40,19 +40,35 @@
 </template>
 <script>
     import axios from 'axios';
-    export default{
+    export default {
         data: function () {
             return {
+                fishsAll: [],
                 fishs: []
             }
         },
         methods: {
             getfishs() {
-                axios.get('api/select_mode').then((res) => {
-                    this.fishs = res.data;
-                });
-            }
-        },
+                axios.get('/api/select_mode')
+                    .then((res) => {
+                        this.fishsAll = res.data;
+                        this.fishs = this.fishsAll.trans_category_name || [];
+                        console.log(this.fishs);
+                    })
+                    .catch((error) => {
+                        console.error('Error fetching fish data:', error);
+                    });
+            },
+            deletefish(id) {
+                axios.delete('/api/select_mode/' + id)
+                    .then((res) => {
+                        this.getfishs();
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting fish:', error);
+                    });
+                }
+            },
         mounted(){
             this.getfishs();
         }
