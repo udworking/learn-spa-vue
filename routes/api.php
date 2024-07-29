@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\FishController;
+use App\Http\Controllers\PetController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +33,11 @@ Route::middleware('api')->post('/select_mode', [FishController::class, 'add']);
 Route::middleware('api')->get('/select_mode/{fish}', [FishController::class, 'detail']);
 Route::middleware('api')->put('/select_mode/{fish}', [FishController::class, 'update']);
 Route::middleware('api')->delete('/select_mode/{fish}', [FishController::class, 'destroy']);
+
+Route::middleware('api')->get('/pets', [PetController::class, 'index']);
+Route::middleware('api')->post('/pets', [PetController::class, 'add']);
+Route::middleware('api')->get('/pets/{pet}', [PetController::class, 'detail']);
+Route::middleware('api')->put('/pets/{pet}', [PetController::class, 'update']);
+Route::middleware('api')->delete('/pets/{pet}', [PetController::class, 'destroy']);
+
+Route::middleware('api')->get('/categories', [CategoryController::class, 'index']);

@@ -5,7 +5,7 @@
                     <form>
                         <div class="form-group row border-bottom">
                             <label for="id" class="col-sm-3 col-form-label">No</label>
-                            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="id"v-bind:value="fishId">
+                            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="id"v-bind:value="petId">
                         </div>
                         <div class="form-group row border-bottom">
                             <label for="title" class="col-sm-3 col-form-label">Name</label>
@@ -33,25 +33,26 @@
         import axios from 'axios';
         export default {
             props: {
-                fishId: String
+                petId: String
             },
             data(){
                 return{
-                    fish:{}
+                    pet:{}
                 };
             },
             mounted(){
-                this.fetchfishData();
+                this.fetchPetData();
             },
             methods: {
-                fetchfishData(){
-                    axios.get('api/select_mode/$(this.fishId})').then(response =>{
-                        this.fish = response.data;
+                fetchPetData(){
+                    axios.get('api/pets/$(this.petId)').then(response => {
+                        this.pet = response.data;
                     })
                     .catch(error => {
-                        console.error('Error fetching fish data:', error);
+                        console.error('Error fetching pets data:', error);
                     });
                 }
             }
+
         }
     </script>

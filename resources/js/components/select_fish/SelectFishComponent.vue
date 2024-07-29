@@ -53,7 +53,7 @@
                     .then((res) => {
                         this.fishsAll = res.data;
                         this.fishs = this.fishsAll.trans_category_name || [];
-                        console.log(this.fishs);
+                        // console.log(this.fishs);
                     })
                     .catch((error) => {
                         console.error('Error fetching fish data:', error);

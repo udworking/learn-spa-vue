@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         // $this->call(TasksTableSeeder::class);
         // $this->call(FishTableSeeder::class);
-        $this->call(CategoryTableSeeder::class);
+        // $this->call(CategoryTableSeeder::class);
+        $this->call(PetsTableSeeder::class);
     }
 }
