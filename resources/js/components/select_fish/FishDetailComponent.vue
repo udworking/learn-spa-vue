@@ -19,6 +19,10 @@
                             <label for="person-in-charge" class="col-sm-3 col-form-label">description</label>
                             <input type="text" class="col-sm-9 form-control-plaintext" readonly id="person-in-charge" value="description">
                         </div>
+                        <div class="form-group row border-bottom">
+                            <label for="person-in-charge" class="col-sm-3 col-form-label">category</label>
+                            <input type="text" class="col-sm-9 form-control-plaintext" readonly id="person-in-charge" value="category">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -29,6 +33,24 @@
         export default {
             props: {
                 fishId: String
+            },
+            data(){
+                return{
+                    fish:{}
+                };
+            },
+            mounted(){
+                this.fetchfishData();
+            },
+            methods: {
+                fetchfishData(){
+                    axios.get('api/select_mode/$(this.fishId})').then(response =>{
+                        this.fish = response.data;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching fish data:', error);
+                    });
+                }
             }
         }
     </script>

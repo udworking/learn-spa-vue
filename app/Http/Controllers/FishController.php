@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fish;
+use App\Models\Category;
 use Illuminate\Support\Facades\Validator;
 class FishController extends Controller
 {
     public function index()
     {
-        return response()->json(Fish::all());
+        // すべてのfishTBLのレコードを取得
+        $fish = Fish::all();
+        // すべてのカテゴリを取得し、マッピングを作成
+        $categories = Category::all() -> pluck('phylum', 'category');
+        // カテゴリ名を置換した新しい配列
+        $fishwithphylum = $fish->map(function ($fish) use ($categories){
+            $fish->category_name = $categories[$fish->category] ?? 'unknown';
+            return $fish;
+        });
+        return response()->json(['original' => $fish, 'trans_category_name' => $fishwithphylum]);
     }
     public function detail(Fish $fish)
     {
@@ -52,9 +62,16 @@ class FishController extends Controller
         $fish->update($request->all());
         return response()->json($fish);
     }
-    public function delete(Fish $fish)
+    public function destroy($id)
     {
-        $fish->delete();
-        return $fish;
+        $fish = Fish::find($id);
+        if ($fish) {
+            $fish->delete();
+            return response()->json(['message' => 'Fish deleted successfully'], 200);
+        } else {
+            return response()->json(['message' => 'Fish not found'], 404);
+        }
     }
+    
+
 }

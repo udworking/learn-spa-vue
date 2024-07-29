@@ -48,19 +48,13 @@ const routes = [
         component: SelectFishComponent,
     },
     {
-        path: '/select_mode/:fishId',
-        name: 'select_mode.detail',
-        component: FishDetailComponent,
-        props: true
-    },
-    {
         path: '/select_mode/add_f',
         name: 'select.add_f',
         component: AddFishComponent,
     },
     {
         path: '/select_mode/:fishId',
-        name: 'select.fish',
+        name: 'select_mode.detail',
         component: FishDetailComponent,
         props: true
     },
@@ -70,7 +64,6 @@ const routes = [
         component: EditFishComponent,
         props: true
     },
-
 ];
 
 const router = createRouter({

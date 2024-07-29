@@ -19,4 +19,9 @@ class Fish extends Model
         'np_flg',
         'display',
     ];
+    // Categoryモデルとのリレーションを追加
+    public function category()
+    {
+        return $this->belongto(Category::class, 'category', 'category');
+    }
 }

@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('category', function (Blueprint $table) {
             $table->id();
+            $table->integer('category');
+            $table->string('phylum');
+            $table->string('note');
             $table->timestamps();
         });
     }
