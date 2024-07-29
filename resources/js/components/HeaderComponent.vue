@@ -4,11 +4,17 @@
             <nav class="navbar navbar-dark">
                 <span class="navbar-brand mb-0 h1">Vue laravel SPA</span>
                 <div>
-                    <router-link v-bind:to="{name: 'task.list'}">
+                    <!-- <router-link v-bind:to="{name: 'task.list'}">
                         <button class="btn btn-success">List</button>
                     </router-link>
                     <router-link v-bind:to="{name: 'task.insert'}">
                         <button class="btn btn-success">ADD</button>
+                    </router-link> -->
+                    <router-link v-bind:to="{name: 'pet.list'}">
+                        <button class="btn btn-success">Pets</button>
+                    </router-link>
+                    <router-link v-bind:to="{name: 'pet.insert'}">
+                        <button class="btn btn-success">Add</button>
                     </router-link>
                     <router-link v-bind:to="{name: 'select_top'}">
                         <button class="btn btn-success">Select_Top</button>

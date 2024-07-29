@@ -13,6 +13,11 @@ import FishDetailComponent from './components/select_fish/FishDetailComponent.vu
 import AddFishComponent from './components/select_fish/AddFishComponent.vue';
 import EditFishComponent from './components/select_fish/EditFishComponent.vue';
 
+import PetsListComponent from './components/pets/PetsComponent.vue';
+import PetsDetailComponent from './components/pets/PetsDetailComponent.vue';
+import PetsInsertComponent from './components/pets/PetsInsertComponent.vue';
+import PetsEditComponent from './components/pets/PetsEditComponent.vue';
+
 // Vue Routerのセットアップ
 const routes = [
     {
@@ -64,6 +69,28 @@ const routes = [
         component: EditFishComponent,
         props: true
     },
+    {
+        path: '/pets',
+        name:'pet.list',
+        component: PetsListComponent 
+    },
+    {
+        path:'/pets/insert',
+        name:'pet.insert',
+        component: PetsInsertComponent
+    },
+    {
+        path: '/pets/:petId',
+        name:'pet.detail',
+        component: PetsDetailComponent,
+        props: true
+    },
+    {
+        path: '/pets/:petId/edit',
+        name: 'pet.edit',
+        component: PetsEditComponent,
+        props: true
+    }
 ];
 
 const router = createRouter({
